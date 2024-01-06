@@ -8,13 +8,16 @@ export default function MealDetailsPage({ params }) {
   if (!meal) {
     notFound();
   }
-  
+
   meal.instructions = meal.instructions.replace(/\n/g, "<br/>");
   return (
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image fill src={meal.image} />
+          <Image
+            fill
+            src={`https://mengqu-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>

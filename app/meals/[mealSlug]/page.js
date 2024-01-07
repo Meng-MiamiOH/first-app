@@ -16,6 +16,7 @@ export default function MealDetailsPage({ params }) {
         <div className={classes.image}>
           <Image
             fill
+            alt={meal.title}
             src={`https://mengqu-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
           />
         </div>

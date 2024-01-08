@@ -4,7 +4,7 @@ import { useFormState } from "react-dom";
 
 import ImagePicker from "@/components/meals/image-picker";
 import classes from "./page.module.css";
-import { shareMeal } from "@/lib/action";
+import { shareMeal } from "@/lib/actions";
 import MealsFormSubmit from "@/components/meals/meals-form-submit";
 
 export default function ShareMealPage() {
@@ -27,7 +27,7 @@ export default function ShareMealPage() {
             </p>
             <p>
               <label htmlFor="email">Your email</label>
-              <input type="email" id="email" name="email"/>
+              <input type="email" id="email" name="email" required />
             </p>
           </div>
           <p>
@@ -47,7 +47,7 @@ export default function ShareMealPage() {
               required
             ></textarea>
           </p>
-          <ImagePicker label="Your Image" name="image" />
+          <ImagePicker label="Your image" name="image" />
           {state.message && <h1>{state.message}</h1>}
           <p className={classes.actions}>
             <MealsFormSubmit />

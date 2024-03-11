@@ -4,9 +4,6 @@ import classes from "./page.module.css";
 import ImageSlideshow from "@/components/images/image-slideshow";
 import React from "react";
 import getSingleCityWeather from "@/components/weather/get-weather";
-// import WeatherComponent from "@/components/weather/get-weather";
-
-
 
 const cityList = [
   "Oxford,OH,US",
@@ -17,14 +14,12 @@ const cityList = [
 ];
 
 export default async function Home() {
-  const weatherdata = await getSingleCityWeather(cityList[2]);
+  // const weatherdata =
 
   return (
     <>
       <header className={classes.header}>
-        <div className={classes.slideshow}>
-          {/* <ImageSlideshow /> */}
-        </div>
+        <div className={classes.slideshow}>{/* <ImageSlideshow /> */}</div>
         <div>
           <div className={classes.hero}>
             <h1>NextLevel Food for NextLevel Foodies</h1>
@@ -38,7 +33,19 @@ export default async function Home() {
       </header>
       <main>
         <section className={classes.section}>
-          {JSON.stringify(weatherdata)}
+          {await Promise.all(
+            cityList.map(async (city) => {
+              const cityAllData = await getSingleCityWeather(city);
+
+              return (
+                <div key={city}>
+                  {JSON.stringify(cityAllData.name).replace(/"/g, "")}{" "}
+                  {JSON.stringify(cityAllData.weather[0].description).replace(/"/g, "")}{" "}
+                  {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "")}{" "}
+                  {JSON.stringify(cityAllData.main.temp).replace(/"/g, "")}{" "}</div>
+              );
+            })
+          )}
         </section>
       </main>
     </>

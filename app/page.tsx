@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import classes from "./page.module.css";
-import ImageSlideshow from "@/components/images/image-slideshow";
 import React from "react";
-import getSingleCityWeather from "@/components/weather/get-weather";
+import ImageSlideshow from "../components/images/image-slideshow";
+import getSingleCityWeather from "../components/weather/get-weather";
 
 const cityList = [
   "Oxford,OH,US",

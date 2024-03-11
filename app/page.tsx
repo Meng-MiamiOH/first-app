@@ -14,7 +14,6 @@ const cityList = [
 ];
 
 export default async function Home() {
-  // const weatherdata =
 
   return (
     <>
@@ -40,9 +39,9 @@ export default async function Home() {
               return (
                 <div key={city}>
                   {JSON.stringify(cityAllData.name).replace(/"/g, "")}{" "}
-                  {JSON.stringify(cityAllData.weather[0].description).replace(/"/g, "")}{" "}
-                  {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "")}{" "}
-                  {JSON.stringify(cityAllData.main.temp).replace(/"/g, "")}{" "}</div>
+                  {" "}{JSON.stringify(cityAllData.weather[0].description).replace(/"/g, "")}
+                  {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "").replace("01d","☀️").replace("02d","🌤️").replace("03d","☁️").replace("04d","🌥️")}{" "}
+                  当前温度{" "}{JSON.stringify(cityAllData.main.temp).replace(/"/g, "")}{"℃"}</div>
               );
             })
           )}

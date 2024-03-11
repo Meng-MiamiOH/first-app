@@ -1,11 +1,9 @@
 "use server";
 
 export default async function getSingleCityWeather(cityProp) {
-  // "use server";
-
 
   const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityProp}&appid=${process.env.WEATHERAPI}`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityProp}&lang=zh_cn&units=metric&appid=${process.env.WEATHERAPI}`,
     { cache: "no-store" }
   );
   if (!res.ok) {

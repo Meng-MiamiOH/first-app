@@ -6,11 +6,13 @@ import ImageSlideshow from "../components/images/image-slideshow";
 import getSingleCityWeather from "../components/weather/get-weather";
 
 const cityList = [
-  "Oxford,OH,US",
   "Boston,MA,US",
-  "New York,NY,US",
-  "Syracuse,NY,US",
+  "Bristol,UK",
   "Chapel Hill,NC,US",
+  "Miami,FL,US",
+  "New York,NY,US",
+  "Oxford,OH,US",
+  "Syracuse,NY,US",
 ];
 
 export default async function Home() {
@@ -41,7 +43,7 @@ export default async function Home() {
                   {JSON.stringify(cityAllData.name).replace(/"/g, "")}{" "}
                   {" "}{JSON.stringify(cityAllData.weather[0].description).replace(/"/g, "")}
                   {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "").replace("01d","☀️").replace("02d","🌤️").replace("03d","☁️").replace("04d","🌥️").replace("09d","🌦️").replace("10d","🌧️").replace("11d","⛈️").replace("13d","❄️").replace("50d","🌫️")}{" "}
-                  当前温度{" "}{JSON.stringify(cityAllData.main.temp).replace(/"/g, "")}{"℃"}</div>
+                  当前温度{" "}{JSON.stringify(cityAllData.main.temp.toFixed(1)).replace(/"/g, "")}{"℃"}</div>
               );
             })
           )}

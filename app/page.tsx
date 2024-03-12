@@ -42,8 +42,8 @@ export default async function Home() {
                 <div key={city}>
                   {JSON.stringify(cityAllData.name).replace(/"/g, "")}{" "}
                   {" "}{JSON.stringify(cityAllData.weather[0].description).replace(/"/g, "")}
-                  {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "").replace("01","☀️").replace("02","🌤️").replace("03","☁️").replace("04","🌥️").replace("09","🌦️").replace("10","🌧️").replace("11","⛈️").replace("13","❄️").replace("50","🌫️").replace(/"n|d"/g,"")}{" "}
-                  当前温度{" "}{JSON.stringify(cityAllData.main.temp.toFixed(1)).replace(/"/g, "")}{"℃"}</div>
+                  {JSON.stringify(cityAllData.weather[0].icon).replace(/"/g, "").replace("01","☀️").replace("02","🌤️").replace("03","☁️").replace("04","🌥️").replace("09","🌦️").replace("10","🌧️").replace("11","⛈️").replace("13","❄️").replace("50","🌫️").replace(/n|d/g,"")}{" "}
+                  当前温度{" "}{JSON.stringify(Math.round(cityAllData.main.temp)).replace(/"/g, "")}{"℃"}</div>
               );
             })
           )}

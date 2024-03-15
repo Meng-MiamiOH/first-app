@@ -27,9 +27,9 @@ export default function MealDetailsPage({ params }) {
       <header className={classes.header}>
         <div className={classes.image}>
           <Image
-            fill
             alt={meal.title}
             src={`https://mengqu-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+            fill
           />
         </div>
         <div className={classes.headerText}>
@@ -40,7 +40,7 @@ export default function MealDetailsPage({ params }) {
           <p className={classes.summary}>{meal.summary}</p>
         </div>
       </header>
-      <main className={classes.main}>
+      <main>
         <p
           className={classes.instructions}
           dangerouslySetInnerHTML={{
